@@ -1,0 +1,14 @@
+services:
+  apis:
+    network_mode: "host"
+    image: "python:3.12"
+    ports:
+      - "8000:8000"
+    volumes:
+      - "/D/SiddhU_Task:/task"
+    command: sh -c "
+      python -m venv my-env
+      && . my-env/bin/activate
+      && cd task
+      && pip install -r requirement.txt
+      && python main.py"
